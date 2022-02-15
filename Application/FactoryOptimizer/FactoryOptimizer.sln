@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactoryOptimizer", "FactoryOptimizer\FactoryOptimizer.csproj", "{113D97FE-360E-4D04-8F2C-9B66952EC9BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{113D97FE-360E-4D04-8F2C-9B66952EC9BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{113D97FE-360E-4D04-8F2C-9B66952EC9BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{113D97FE-360E-4D04-8F2C-9B66952EC9BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{113D97FE-360E-4D04-8F2C-9B66952EC9BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {979CC660-F9C2-400C-A1B6-60D489263765}
+	EndGlobalSection
+EndGlobal
