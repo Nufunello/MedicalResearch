@@ -56,5 +56,44 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Additional" />
+    <Folder Include="Researches" />
+    <Folder Include="DepartmentResearches" />
+    <Folder Include="Additional\Tables" />
+    <Folder Include="DepartmentResearches\Tables" />
+    <Folder Include="Researches\Tables" />
+    <Folder Include="Departments" />
+    <Folder Include="Departments\Tables" />
+    <Folder Include="Additional\PostDeployment" />
+    <Folder Include="Departments\PostDeployment" />
+    <Folder Include="Researches\PostDeployment" />
+    <Folder Include="DepartmentResearches\PostDeployment" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Additional\Tables\Region.sql" />
+    <Build Include="Additional\Tables\City.sql" />
+    <Build Include="Additional\Tables\DayOfWeek.sql" />
+    <Build Include="Departments\Tables\Department.sql" />
+    <Build Include="Departments\Tables\WorkSchedule.sql" />
+    <Build Include="Researches\Tables\GroupResearch.sql" />
+    <Build Include="Researches\Tables\Preparation.sql" />
+    <Build Include="Researches\Tables\Research.sql" />
+    <Build Include="DepartmentResearches\Tables\DepartmentResearch.sql" />
+    <Build Include="DepartmentResearches\Tables\DepartmentResearchWorkSchedule.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Additional\PostDeployment\01.Region.sql" />
+    <None Include="Additional\PostDeployment\02.City.sql" />
+    <None Include="Additional\PostDeployment\03.DayOfWeek.sql" />
+    <None Include="Departments\PostDeployment\01.Department.sql" />
+    <None Include="Departments\PostDeployment\02.WorkSchedule.sql" />
+    <None Include="Researches\PostDeployment\01.GroupResearch.sql" />
+    <None Include="Researches\PostDeployment\02.Preparation.sql" />
+    <None Include="Researches\PostDeployment\03.Research.sql" />
+    <None Include="DepartmentResearches\PostDeployment\01.DepartmentResearch.sql" />
+    <None Include="DepartmentResearches\PostDeployment\02.DepartmentResearchWorkSchedule.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="PostDeployment.sql" />
   </ItemGroup>
 </Project>
