@@ -6,22 +6,19 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicalResearch", "MedicalResearch\MedicalResearch.csproj", "{113D97FE-360E-4D04-8F2C-9B66952EC9BB}"
 	ProjectSection(ProjectDependencies) = postProject
 		{EB80020F-16D0-4372-AE5D-EEFA29B1B515} = {EB80020F-16D0-4372-AE5D-EEFA29B1B515}
-		{4307E0B3-76E6-41AF-8C68-2677F3A55BF7} = {4307E0B3-76E6-41AF-8C68-2677F3A55BF7}
 		{45BB48D0-F489-41D2-986E-D8565CCD06E9} = {45BB48D0-F489-41D2-986E-D8565CCD06E9}
 	EndProjectSection
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MedicalResearch.Database", "MedicalResearch.Database\MedicalResearch.Database.sqlproj", "{28CD42E3-AC8F-48FE-81EE-E2711B19DB2A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicalResearch.DAL", "MedicalResearch.DAL\MedicalResearch.DAL.csproj", "{4307E0B3-76E6-41AF-8C68-2677F3A55BF7}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicalResearch.Domain", "MedicalResearch.Domain\MedicalResearch.Domain.csproj", "{D647BC2E-CBBC-44A5-B069-B40F9894A98F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalResearch.Persistence", "MedicalResearch.Persistence\MedicalResearch.Persistence.csproj", "{45BB48D0-F489-41D2-986E-D8565CCD06E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicalResearch.Persistence", "MedicalResearch.Persistence\MedicalResearch.Persistence.csproj", "{45BB48D0-F489-41D2-986E-D8565CCD06E9}"
 	ProjectSection(ProjectDependencies) = postProject
 		{EB80020F-16D0-4372-AE5D-EEFA29B1B515} = {EB80020F-16D0-4372-AE5D-EEFA29B1B515}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalResearch.Application", "MedicalResearch.Application\MedicalResearch.Application.csproj", "{EB80020F-16D0-4372-AE5D-EEFA29B1B515}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicalResearch.Application", "MedicalResearch.Application\MedicalResearch.Application.csproj", "{EB80020F-16D0-4372-AE5D-EEFA29B1B515}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D647BC2E-CBBC-44A5-B069-B40F9894A98F} = {D647BC2E-CBBC-44A5-B069-B40F9894A98F}
 	EndProjectSection
@@ -42,10 +39,6 @@ Global
 		{28CD42E3-AC8F-48FE-81EE-E2711B19DB2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28CD42E3-AC8F-48FE-81EE-E2711B19DB2A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{28CD42E3-AC8F-48FE-81EE-E2711B19DB2A}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{4307E0B3-76E6-41AF-8C68-2677F3A55BF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4307E0B3-76E6-41AF-8C68-2677F3A55BF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4307E0B3-76E6-41AF-8C68-2677F3A55BF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4307E0B3-76E6-41AF-8C68-2677F3A55BF7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D647BC2E-CBBC-44A5-B069-B40F9894A98F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D647BC2E-CBBC-44A5-B069-B40F9894A98F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D647BC2E-CBBC-44A5-B069-B40F9894A98F}.Release|Any CPU.ActiveCfg = Release|Any CPU
