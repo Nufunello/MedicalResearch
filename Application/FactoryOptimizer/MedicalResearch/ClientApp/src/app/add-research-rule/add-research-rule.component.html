@@ -1,0 +1,17 @@
+<form [formGroup]="researchForm" class="form-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Додати Групу</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+          <div class="col-sm-6">
+            <mat-form-field class="full-width">
+              <textarea formControlName="Description" matInput placeholder="Опис"></textarea>
+            </mat-form-field>
+          </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button (click)="onSubmit()" mat-raised-button color="primary">Зберігти</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>

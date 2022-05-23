@@ -1,0 +1,34 @@
+<div class="demo-button-container">
+    <a routerLink="/add-research">
+        <button mat-raised-button class="demo-button" color="primary">
+            Нове Дослідження 
+        </button>
+    </a>
+</div>
+<mat-form-field appearance="standard">
+    <mat-label>Пошук</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Аналіз крові" #input>
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+    class="mat-elevation-z8">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="Id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
+      ІД
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="Name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+      Назва Дослідження
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
