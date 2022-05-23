@@ -1,4 +1,5 @@
 using MedicalResearch.Application.Interfaces;
+using MedicalResearch.Application.Services.GroupResearch;
 using MedicalResearch.Application.Services.Regions;
 using MedicalResearch.Persistence;
 using MedicalResearch.Persistence.DatabaseContext;
@@ -36,10 +37,12 @@ namespace MedicalResearch
 
             #region Services
             services.AddTransient<IRegionService, RegionService>();
+            services.AddTransient<IGroupResearchService, GroupResearchService>();
             #endregion
 
             #region Repositories
             services.AddTransient<IRegionRepository, RegionRepository>();
+            services.AddTransient<IGroupResearchRepository, GroupResearchRepository>();
             #endregion
         }
 
