@@ -14,3 +14,4 @@ VALUES
 (10, 1, N'Чернівці')
 
 SET IDENTITY_INSERT [dbo].[City] OFF
+GO

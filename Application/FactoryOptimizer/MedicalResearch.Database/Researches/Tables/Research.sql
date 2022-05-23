@@ -6,8 +6,7 @@
 	[DeadlineInDays] INT NOT NULL,
 	[Cost] MONEY NOT NULL,
 	[GroupResearchID] INT NOT NULL,
-	[PreparationID] INT NOT NULL,
+	[PreparationDescription] NVARCHAR(MAX) NULL,
 	CONSTRAINT [PK_Research] PRIMARY KEY ([ID]),
-	CONSTRAINT [FK_Research_GroupResearch] FOREIGN KEY ([GroupResearchID]) REFERENCES [dbo].[GroupResearch]([ID]),
-	CONSTRAINT [FK_Research_Preparation] FOREIGN KEY ([PreparationID]) REFERENCES [dbo].[Preparation]([ID])
+	CONSTRAINT [FK_Research_GroupResearch] FOREIGN KEY ([GroupResearchID]) REFERENCES [dbo].[GroupResearch]([ID])
 )

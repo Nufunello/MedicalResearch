@@ -56,3 +56,4 @@ VALUES
 (53, 9, 5, '08:00:00', '13:00:00'),
 (54, 18, 6, '08:00:00', '12:15:00')
 SET IDENTITY_INSERT [dbo].[DepartmentResearchWorkSchedule] OFF
+GO
