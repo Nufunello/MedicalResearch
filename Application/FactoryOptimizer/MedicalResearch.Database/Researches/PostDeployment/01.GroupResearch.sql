@@ -6,3 +6,4 @@ VALUES
 (2, N'Біохімічні дослідження')
 
 SET IDENTITY_INSERT [dbo].[GroupResearch] OFF
+GO

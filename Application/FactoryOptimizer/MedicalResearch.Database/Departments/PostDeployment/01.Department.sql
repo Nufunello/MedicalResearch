@@ -11,3 +11,4 @@ VALUES
 (8, 10, N'Авангардна',N'53', N'+380950000101'),
 (9, 10, N'Головна',N'32', N'+380950000102')
 SET IDENTITY_INSERT [dbo].[Department] OFF
+GO

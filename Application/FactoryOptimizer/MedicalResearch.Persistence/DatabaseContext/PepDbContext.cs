@@ -1,4 +1,5 @@
 ﻿using MedicalResearch.Persistence.Configurations.Additional;
+using MedicalResearch.Persistence.Configurations.DepartmentResearches;
 using MedicalResearch.Persistence.Configurations.Departments;
 using MedicalResearch.Persistence.Configurations.Researches;
 using Microsoft.EntityFrameworkCore;
@@ -33,10 +34,10 @@ namespace MedicalResearch.Persistence.DatabaseContext
             modelBuilder.ApplyConfiguration(new CityConfiguration());
             modelBuilder.ApplyConfiguration(new DepartmentConfiguration());
             modelBuilder.ApplyConfiguration(new WorkScheduleConfiguration());
-            modelBuilder.ApplyConfiguration(new PreparationConfiguration());
             modelBuilder.ApplyConfiguration(new GroupResearchConfiguration());
             modelBuilder.ApplyConfiguration(new ResearchConfiguration());
-            //TODO: add departmentResearch configuration
+            modelBuilder.ApplyConfiguration(new DepartmentResearchConfiguration());
+            modelBuilder.ApplyConfiguration(new DepartmentResearchWorkScheduleConfiguration());
         }
     }
 }

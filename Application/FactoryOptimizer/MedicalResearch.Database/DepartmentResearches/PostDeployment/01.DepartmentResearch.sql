@@ -22,3 +22,4 @@ VALUES
 (18, 9, 5, 5)
 
 SET IDENTITY_INSERT [dbo].[DepartmentResearch] OFF
+GO

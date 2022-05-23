@@ -6,8 +6,7 @@
 :r .\Departments\PostDeployment\02.WorkSchedule.sql
 
 :r .\Researches\PostDeployment\01.GroupResearch.sql
-:r .\Researches\PostDeployment\02.Preparation.sql
-:r .\Researches\PostDeployment\03.Research.sql
+:r .\Researches\PostDeployment\02.Research.sql
 
 :r .\DepartmentResearches\PostDeployment\01.DepartmentResearch.sql
 :r .\DepartmentResearches\PostDeployment\02.DepartmentResearchWorkSchedule.sql
