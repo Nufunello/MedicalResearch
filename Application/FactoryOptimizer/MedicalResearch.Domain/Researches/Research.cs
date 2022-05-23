@@ -11,10 +11,9 @@ namespace MedicalResearch.Domain.Researches
         public int DeadlineInDays { get; set; }
         public decimal Cost { get; set; }
         public int GroupResearchID { get; set; }
-        public int PreparationID { get; set; }
+        public string PreparationDescription { get; set; }
 
         public GroupResearch GroupResearch { get; set; }
-        public Preparation Preparation { get; set; }
         public List<DepartmentResearch> DepartmentResearches { get; set; }
     }
 }

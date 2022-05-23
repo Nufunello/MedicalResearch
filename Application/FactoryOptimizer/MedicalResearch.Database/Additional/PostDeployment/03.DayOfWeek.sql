@@ -9,3 +9,4 @@ VALUES
 (6, N'Субота'),
 (7, N'Неділя')
 SET IDENTITY_INSERT [dbo].[DayOfWeek] OFF
+GO
