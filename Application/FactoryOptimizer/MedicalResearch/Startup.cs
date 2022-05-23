@@ -1,6 +1,10 @@
+using MedicalResearch.Application.Interfaces;
+using MedicalResearch.Application.Services.Regions;
+using MedicalResearch.Persistence;
+using MedicalResearch.Persistence.DatabaseContext;
+using MedicalResearch.Persistence.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +30,17 @@ namespace MedicalResearch
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.Configure<DatabaseOptions>(Configuration.GetSection("DatabaseOptions"));
+            services.AddDbContext<PepDbContext>();
+
+            #region Services
+            services.AddTransient<IRegionService, RegionService>();
+            #endregion
+
+            #region Repositories
+            services.AddTransient<IRegionRepository, RegionRepository>();
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

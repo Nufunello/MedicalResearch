@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>MedicalResearch.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{28cd42e3-ac8f-48fe-81ee-e2711b19db2a}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>MedicalResearch.Database</RootNamespace>
+    <AssemblyName>MedicalResearch.Database</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Additional" />
+    <Folder Include="Researches" />
+    <Folder Include="DepartmentResearches" />
+    <Folder Include="Additional\Tables" />
+    <Folder Include="DepartmentResearches\Tables" />
+    <Folder Include="Researches\Tables" />
+    <Folder Include="Departments" />
+    <Folder Include="Departments\Tables" />
+    <Folder Include="Additional\PostDeployment" />
+    <Folder Include="Departments\PostDeployment" />
+    <Folder Include="Researches\PostDeployment" />
+    <Folder Include="DepartmentResearches\PostDeployment" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Additional\Tables\Region.sql" />
+    <Build Include="Additional\Tables\City.sql" />
+    <Build Include="Additional\Tables\DayOfWeek.sql" />
+    <Build Include="Departments\Tables\Department.sql" />
+    <Build Include="Departments\Tables\WorkSchedule.sql" />
+    <Build Include="Researches\Tables\GroupResearch.sql" />
+    <Build Include="Researches\Tables\Preparation.sql" />
+    <Build Include="Researches\Tables\Research.sql" />
+    <Build Include="DepartmentResearches\Tables\DepartmentResearch.sql" />
+    <Build Include="DepartmentResearches\Tables\DepartmentResearchWorkSchedule.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Additional\PostDeployment\01.Region.sql" />
+    <None Include="Additional\PostDeployment\02.City.sql" />
+    <None Include="Additional\PostDeployment\03.DayOfWeek.sql" />
+    <None Include="Departments\PostDeployment\01.Department.sql" />
+    <None Include="Departments\PostDeployment\02.WorkSchedule.sql" />
+    <None Include="Researches\PostDeployment\01.GroupResearch.sql" />
+    <None Include="Researches\PostDeployment\02.Preparation.sql" />
+    <None Include="Researches\PostDeployment\03.Research.sql" />
+    <None Include="DepartmentResearches\PostDeployment\01.DepartmentResearch.sql" />
+    <None Include="DepartmentResearches\PostDeployment\02.DepartmentResearchWorkSchedule.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="PostDeployment.sql" />
+  </ItemGroup>
+</Project>
