@@ -39,5 +39,29 @@ namespace MedicalResearch.Persistence.Repositories
         {
             return Create<Research>(research);
         }
+
+        public async Task<ResearchDto> GetDetails(int id)
+        {
+            var item = await DbContext.Set<Research>()
+                .Include(x => x.GroupResearch)
+                .SingleOrDefaultAsync(x => x.ID == id);
+
+            return new ResearchDto
+            {
+                ID = item.ID,
+                Name = item.Name,
+                Description = item.Description,
+                DeadlineInDays = item.DeadlineInDays,
+                Cost = item.Cost,
+                PreparationDescription = item.PreparationDescription,
+                GroupID = item.GroupResearchID,
+                GroupName = item.GroupResearch.Name
+            };
+        }
+
+        public async Task<Research> Get(int id)
+        {
+            return await DbContext.Set<Research>().SingleOrDefaultAsync(x => x.ID == id);
+        }
     }
 }

@@ -28,9 +28,24 @@ namespace MedicalResearch.Controllers
         }
 
         [HttpPost("new")]
-        public async Task<IActionResult> Create([FromBody] ResearchCreateRequestModel model)
+        public async Task<IActionResult> Create([FromBody] ResearchCreateUpdateRequestModel model)
         {
             return Ok(await _researchService.Create(model.AsDto()));
         }
+
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> Get([FromRoute] int id)
+        {
+            var item = await _researchService.GetResearch(id);
+            return Ok(item.AsViewModel());
+        }
+
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] ResearchCreateUpdateRequestModel model)
+        {
+            await _researchService.UpdateResearch(id, model.AsDto());
+            return Ok();
+        }
+
     }
 }
