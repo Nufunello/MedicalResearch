@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MedicalResearch.Models.Researches
 {
-    public class ResearchCreateRequestModel
+    public class ResearchCreateUpdateRequestModel
     {
         [Required]
         [MaxLength(50)]
@@ -20,9 +20,9 @@ namespace MedicalResearch.Models.Researches
 
     public static partial class ViewModelMapperExtensions
     {
-        public static ResearchCreateDto AsDto(this ResearchCreateRequestModel requestModel)
+        public static ResearchCreateUpdateDto AsDto(this ResearchCreateUpdateRequestModel requestModel)
         {
-            return new ResearchCreateDto
+            return new ResearchCreateUpdateDto
             {
                 Name = requestModel.Name,
                 Description = requestModel.Description,

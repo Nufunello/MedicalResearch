@@ -10,5 +10,9 @@ namespace MedicalResearch.Application.Interfaces
         Task<IList<ResearchListItemDto>> GetResearches(int? groupId, string groupName, string name);
 
         Task Create(Research research);
+
+        Task<ResearchDto> GetDetails(int id);
+
+        Task<Research> Get(int id);
     }
 }

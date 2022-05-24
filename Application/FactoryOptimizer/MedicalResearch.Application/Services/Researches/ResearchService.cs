@@ -19,7 +19,7 @@ namespace MedicalResearch.Application.Services.Researches
         {
             return await _researchRepository.GetResearches(query.GroupID, query.GroupName, query.Name);
         }
-        public async Task<int> Create(ResearchCreateDto model)
+        public async Task<int> Create(ResearchCreateUpdateDto model)
         {
             //add check
 
@@ -37,6 +37,28 @@ namespace MedicalResearch.Application.Services.Researches
             await _researchRepository.SaveChanges();
 
             return research.ID;
+        }
+
+        public async Task<ResearchDto> GetResearch(int id)
+        {
+            var item = await _researchRepository.GetDetails(id);
+            return item;
+        }
+
+        public async Task UpdateResearch(int id, ResearchCreateUpdateDto dto)
+        {
+            var item = await _researchRepository.Get(id);
+            if (item == null)
+                throw new ArgumentNullException($"research does not exist with this id ={id}");
+
+            item.Cost = dto.Cost;
+            item.DeadlineInDays = dto.DeadlineInDays;
+            item.Description = dto.Description;
+            item.GroupResearchID = dto.GroupResearchID;
+            item.Name = dto.Name;
+            item.PreparationDescription = dto.PreparationDescription;
+
+            await _researchRepository.SaveChanges();
         }
     }
 }
