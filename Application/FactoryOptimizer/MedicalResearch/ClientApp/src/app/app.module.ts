@@ -46,6 +46,7 @@ import { ResearchService } from './services/research.service';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'add-research', component: AddResearchComponent },
+      { path: 'add-research/:id', component: AddResearchComponent },
       { path: 'research-table', component: ResearchTableComponent },
       { path: 'add-research-rule', component: AddResearchRuleComponent },
       { path: 'research-rule-table', component: ResearchRuleTableComponent },

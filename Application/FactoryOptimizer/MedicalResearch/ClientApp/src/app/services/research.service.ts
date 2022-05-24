@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Research } from "../models/research.model";
@@ -11,6 +11,14 @@ export class ResearchService {
 
     create(entity: Research): Observable<number> {
         return this._httpClient.post<number>('https://localhost:44382/researches/new', entity, {headers : new HttpHeaders({ 'Content-Type': 'application/json' })});
+    }
+
+    update(entity: Research): Observable<number> {
+        return this._httpClient.put<number>('https://localhost:44382/researches/' + entity.Id, entity, {headers : new HttpHeaders({ 'Content-Type': 'application/json' })});
+    }
+
+    getOne(id: number): Observable<Research> {
+        return this._httpClient.get<Research>('https://localhost:44382/researches/' + id);
     }
     
     list(): Observable<Research[]> {

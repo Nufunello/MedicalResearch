@@ -1,8 +1,10 @@
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatPaginator, MatSort, MatTableDataSource, MAT_DIALOG_DATA, Sort } from '@angular/material';
+import { Router } from '@angular/router';
 import { Research } from 'src/app/models/research.model';
 import { ResearchService } from 'src/app/services/research.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -14,10 +16,10 @@ export class ResearchTableComponent implements OnInit {
   @ViewChild(MatSort, {static: false}) sort: MatSort;
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
 
-  displayedColumns: string[] = ['id', 'name', 'deadlineInDays', 'groupName', 'preparationDescription', 'cost'];
+  displayedColumns: string[] = ['id', 'name', 'deadlineInDays', 'groupName', 'preparationDescription', 'cost', 'btn'];
   dataSource = new MatTableDataSource();
 
-  constructor(private _liveAnnouncer: LiveAnnouncer, private service: ResearchService, public dialog: MatDialog) {}
+  constructor(private _liveAnnouncer: LiveAnnouncer, private router: Router, private service: ResearchService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
       this.service.list().subscribe(response => {
@@ -40,6 +42,10 @@ export class ResearchTableComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  edit(id: number) {
+    this.router.navigateByUrl('/add-research/' + id);
   }
 
   /** Announce the change in sort state for assistive technology. */
