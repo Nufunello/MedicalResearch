@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -14,9 +14,10 @@ import { MatButtonModule, MatCardModule, MatDatepickerModule, MatFormFieldModule
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddResearchRuleComponent } from './add-research-rule/add-research-rule.component';
 import { ResearchRuleTableComponent } from './add-research-rule/research-rule-table/research-rule-table.component';
-import { ResearchTableComponent } from './add-research/research-table/research-table.component';
+import { DialogDataExampleDialog, ResearchTableComponent } from './add-research/research-table/research-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MaterialExampleModule } from './material.module';
+import { ResearchService } from './services/research.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { MaterialExampleModule } from './material.module';
     AddResearchRuleComponent,
     ResearchRuleTableComponent,
     ResearchTableComponent,
+    DialogDataExampleDialog,
   ],
+  entryComponents: [DialogDataExampleDialog],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     FormsModule,
@@ -48,7 +51,7 @@ import { MaterialExampleModule } from './material.module';
       { path: 'research-rule-table', component: ResearchRuleTableComponent },
     ])
   ],
-  providers: [],
+  providers: [ResearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

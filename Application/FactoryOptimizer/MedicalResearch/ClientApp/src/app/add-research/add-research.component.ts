@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { ResearchService } from '../services/research.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-add-research',
@@ -8,17 +12,21 @@ import { FormBuilder } from '@angular/forms';
 })
 export class AddResearchComponent {
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private service: ResearchService, private router: Router, private _location: Location) {}
 
   researchForm = this.fb.group({
-    name: [''],
-    description: [''],
-    handingTerm: [],
-    deliveryTerm: [],
+    Name: [''],
+    Description: [''],
+    DeadlineInDays: [],
+    Cost: [],
+    PreparationDescription: [''],
+    GroupResearchID: [1]
   });
 
   onSubmit() {
-   console.log('form data is ', this.researchForm.value);
+    let rquest = this.researchForm.getRawValue();
+    console.log(rquest);
+    this.service.create(rquest).subscribe(() => this._location.back());
   }
 
 }

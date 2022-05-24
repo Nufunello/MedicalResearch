@@ -1,24 +1,26 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Research } from "../models/research.model";
 import { Rule } from "../models/rule.model";
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable()
 export class ResearchService {
-    constructor(private readonly _endpoint: string, private readonly _httpClient: HttpClient) {}
+    constructor(private readonly _httpClient: HttpClient) {}
+    serverApi: 'http://localhost:44382'
 
-    create(entity: Research): Observable<Research> {
-        return this._httpClient.post<Research>(this._endpoint, entity);
+    create(entity: Research): Observable<number> {
+        return this._httpClient.post<number>('https://localhost:44382/researches/new', entity, {headers : new HttpHeaders({ 'Content-Type': 'application/json' })});
     }
     
     list(): Observable<Research[]> {
-        return this._httpClient.get<Research[]>(this._endpoint);
+        return this._httpClient.post<Research[]>('https://localhost:44382/researches', {
+            "Name": "",
+            "GroupName":""
+        }, {headers : new HttpHeaders({ 'Content-Type': 'application/json' })});
     }
 
     getRules(): Observable<Rule[]> {
-        return this._httpClient.get<Rule[]>(this._endpoint);
+        return this._httpClient.get<Rule[]>(this.serverApi);
     }
 }
