@@ -31,5 +31,26 @@ namespace MedicalResearch.Persistence.Repositories
             };
             await base.Create<GroupResearch>(groupResearch);
         }
+
+        public async Task Update(int id, GroupResearchDTO groupResearchDTO)
+        {
+            GroupResearch groupResearch = new GroupResearch
+            {
+                ID = id,
+                Name = groupResearchDTO.Description
+            };
+
+            DbContext.Update<GroupResearch>(groupResearch);
+        }
+
+        public async Task Delete(int id)
+        {
+            var model = await DbContext.Set<GroupResearch>().FirstOrDefaultAsync(x => x.ID == id);
+            if(model is null)
+            {
+                return;
+            }
+            DbContext.Remove<GroupResearch>(model);
+        }
     }
 }

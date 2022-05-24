@@ -16,15 +16,45 @@ namespace MedicalResearch.Application.Services.GroupResearch
             _groupResearchRepository = groupResearchRepository ?? throw new ArgumentNullException(nameof(groupResearchRepository));
         }
 
+        public async Task<IList<GroupResearchDTO>> GetList()
+        {
+            return await _groupResearchRepository.GetList();
+        }
+
         public async Task Create(GroupResearchDTO groupResearchDTO)
         {
+            if (groupResearchDTO is null)
+            {
+                throw new ArgumentNullException(nameof(groupResearchDTO));
+            }
+            if (String.IsNullOrEmpty(groupResearchDTO.Description))
+            {
+                throw new ArgumentNullException(nameof(groupResearchDTO.Description));
+            }
+
             await _groupResearchRepository.Create(groupResearchDTO);
             await _groupResearchRepository.SaveChanges();
         }
 
-        public async Task<IList<GroupResearchDTO>> GetList()
+        public async Task Update(int id, GroupResearchDTO groupResearchDTO)
         {
-            return await _groupResearchRepository.GetList();
+            if(groupResearchDTO is null)
+            {
+                throw new ArgumentNullException(nameof(groupResearchDTO));
+            }
+            if(String.IsNullOrEmpty(groupResearchDTO.Description))
+            {
+                throw new ArgumentNullException(nameof(groupResearchDTO.Description));
+            }
+
+            await _groupResearchRepository.Update(id, groupResearchDTO);
+            await _groupResearchRepository.SaveChanges();
+        }
+
+        public async Task Delete(int id)
+        {
+            await _groupResearchRepository.Delete(id);
+            await _groupResearchRepository.SaveChanges();
         }
     }
 }

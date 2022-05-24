@@ -10,5 +10,7 @@ namespace MedicalResearch.Application.Services.GroupResearch
     {
         Task<IList<GroupResearchDTO>> GetList();
         Task Create(GroupResearchDTO groupResearchDTO);
+        Task Update(int id, GroupResearchDTO groupResearchDTO);
+        Task Delete(int id);
     }
 }

@@ -36,5 +36,19 @@ namespace MedicalResearch.Controllers
             await _groupResearchService.Create(groupResearchDTO);
             return Ok();
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateGroupResearchAsync([FromRoute] int id, GroupResearchDTO groupResearchDTO)
+        {
+            await _groupResearchService.Update(id, groupResearchDTO);
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteGroupResearchAsync([FromRoute]int id)
+        {
+            await _groupResearchService.Delete(id);
+            return Ok();
+        }
     }
 }
