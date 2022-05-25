@@ -9,6 +9,6 @@ namespace MedicalResearch.Application.Models.Researches
     {
         public int Id { get; set; }
         public string Description { get; set; }
-        public List<ResearchDTO> ResearchDTOs { get; set; }
+        public List<ResearchDto> ResearchDTOs { get; set; }
     }
 }

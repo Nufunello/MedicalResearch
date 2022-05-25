@@ -39,11 +39,13 @@ namespace MedicalResearch
             #region Services
             services.AddTransient<IRegionService, RegionService>();
             services.AddTransient<IResearchService, ResearchService>();
+            services.AddTransient<IGroupResearchService, GroupResearchService>();
             #endregion
 
             #region Repositories
             services.AddTransient<IRegionRepository, RegionRepository>();
             services.AddTransient<IResearchRepository, ResearchRepository>();
+            services.AddTransient<IGroupResearchRepository, GroupResearchRepository>();
             #endregion
         }
 
