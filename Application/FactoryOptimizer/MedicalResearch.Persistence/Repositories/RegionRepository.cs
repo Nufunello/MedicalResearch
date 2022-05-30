@@ -22,7 +22,7 @@ namespace MedicalResearch.Persistence.Repositories
                     ID = r.ID,
                     Name = r.Name
                 })
-                .ToListAsync();
+                .ToListAsync(); 
         }
 
         public Task<Region> GetRegion(int id)
