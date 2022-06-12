@@ -47,7 +47,7 @@ namespace MedicalResearch.Application.Services.GroupResearch
                 throw new ArgumentNullException(nameof(groupResearchDTO.Description));
             }
 
-            await _groupResearchRepository.Update(id, groupResearchDTO);
+            _groupResearchRepository.Update(id, groupResearchDTO);
             await _groupResearchRepository.SaveChanges();
         }
 

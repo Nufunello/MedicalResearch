@@ -17,14 +17,16 @@ namespace MedicalResearch.Persistence.Configurations.Departments
             builder.Property(d => d.Building).HasMaxLength(50).IsRequired();
             builder.Property(d => d.PhoneNumber).HasMaxLength(13).IsRequired();
 
-            builder.HasOne<City>()
+            builder.HasOne(x => x.City)
                 .WithMany()
                 .HasForeignKey(d => d.CityID)
                 .IsRequired();
+
             builder.HasMany<WorkSchedule>()
                 .WithOne(w => w.Department)
                 .HasForeignKey(w => w.DepartmentID)
                 .IsRequired();
+
             builder.HasMany<DepartmentResearch>()
                 .WithOne(dr => dr.Department)
                 .HasForeignKey(dr => dr.DepartmentID)

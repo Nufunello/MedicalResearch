@@ -13,8 +13,8 @@ namespace MedicalResearch.Persistence.Configurations.Additional
             builder.HasKey(c => c.ID);
             builder.Property(c => c.Name).HasMaxLength(50);
 
-            builder.HasOne<Region>()
-                .WithMany()
+            builder.HasOne(x => x.Region)
+                .WithMany(r => r.Cities)
                 .HasForeignKey(c => c.RegionID)
                 .IsRequired();
 

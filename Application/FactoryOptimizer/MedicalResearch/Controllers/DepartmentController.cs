@@ -1,4 +1,4 @@
-﻿using MedicalResearch.Application.Services.Department;
+﻿using MedicalResearch.Application.Services.Departments;
 using MedicalResearch.Models.Departments;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -22,9 +22,23 @@ namespace MedicalResearch.Controllers
         [HttpGet]
         public async Task<IActionResult> GetDepartmentsAsync()
         {
+            
             var departmentDTOs = await _departmentService.GetList();
             var departmentListItemViewModels = departmentDTOs.Select(i => i.AsViewModel());
             return Ok(departmentListItemViewModels);
+        }
+
+        //[HttpGet]
+        //public async Task<IActionResult> GetDepartmentDetails()
+        //{
+        //    return Ok();
+        //}
+
+        [HttpPost]
+        public async Task<IActionResult> CreateDepartmentAsync(DepartmentCreateUpdateRequestModel model)
+        {
+            var result = await _departmentService.Create(model.AsDto());
+            return Ok(result);
         }
     }
 }
