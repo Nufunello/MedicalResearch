@@ -1,4 +1,4 @@
-﻿using MedicalResearch.Application.Cities;
+﻿using MedicalResearch.Application.Models.Cities;
 
 namespace MedicalResearch.Application.Models.Departments.Dto
 {
