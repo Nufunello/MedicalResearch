@@ -32,7 +32,7 @@ namespace MedicalResearch.Persistence.Repositories
             await base.Create<GroupResearch>(groupResearch);
         }
 
-        public async Task Update(int id, GroupResearchDTO groupResearchDTO)
+        public void Update(int id, GroupResearchDTO groupResearchDTO)
         {
             GroupResearch groupResearch = new GroupResearch
             {

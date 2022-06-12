@@ -1,9 +1,4 @@
-﻿using MedicalResearch.Domain.Additional;
-using MedicalResearch.Domain.DepartmentResearches;
-using MedicalResearch.Domain.Departments;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MedicalResearch.Application.Cities;
 
 namespace MedicalResearch.Application.Models.Departments.Dto
 {
@@ -15,8 +10,8 @@ namespace MedicalResearch.Application.Models.Departments.Dto
         public string Building { get; set; }
         public string PhoneNumber { get; set; }
 
-        public City City { get; set; }
-        public List<WorkSchedule> WorkSchedules { get; set; }
-        public List<DepartmentResearch> DepartmentResearches { get; set; }
+        public CityDto City { get; set; }
+        //public List<WorkSchedule> WorkSchedules { get; set; }
+        //public List<DepartmentResearch> DepartmentResearches { get; set; }
     }
 }

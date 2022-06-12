@@ -8,7 +8,7 @@ namespace MedicalResearch.Application.Interfaces
     {
         Task<IList<GroupResearchDTO>> GetList();
         Task Create(GroupResearchDTO groupResearchDTO);
-        Task Update(int id, GroupResearchDTO groupResearchDTO);
+        void Update(int id, GroupResearchDTO groupResearchDTO);
         Task Delete(int id);
     }
 }

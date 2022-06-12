@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MedicalResearch.Application.Services.Department
+namespace MedicalResearch.Application.Services.Departments
 {
     public interface IDepartmentService
     {
         Task<IList<DepartmentDTO>> GetList();
-        Task Create(DepartmentDTO departmentDTO);
-        Task Update(int id, DepartmentDTO departmentDTO);
+        Task<int> Create(DepartmentCreateUpdateDTO departmentDTO);
+        Task Update(int id, DepartmentCreateUpdateDTO departmentDTO);
         Task Delete(int id);
     }
 }
