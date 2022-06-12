@@ -16,11 +16,11 @@ namespace MedicalResearch.Persistence.Configurations.Departments
             builder.Property(w => w.StartTime).IsRequired();
             builder.Property(w => w.EndTime).IsRequired();
 
-            builder.HasOne<Department>(w => w.Department)
-                .WithMany()
+            builder.HasOne(w => w.Department)
+                .WithMany(w => w.WorkSchedules)
                 .HasForeignKey(w => w.DepartmentID)
                 .IsRequired();
-            builder.HasOne<DayOfWeek>(w => w.DayOfWeek)
+            builder.HasOne(w => w.DayOfWeek)
                 .WithMany()
                 .HasForeignKey(w => w.DayOfWeekID)
                 .IsRequired();

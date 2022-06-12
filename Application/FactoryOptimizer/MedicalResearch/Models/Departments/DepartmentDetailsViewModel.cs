@@ -1,8 +1,11 @@
 ﻿using MedicalResearch.Application.Models.Departments.Dto;
+using MedicalResearch.Models.DepartmentResearches;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MedicalResearch.Models.Departments
 {
-    public class DepartmentListItemViewModel
+    public class DepartmentDetailsViewModel
     {
         public int ID { get; set; }
         public int CityID { get; set; }
@@ -12,13 +15,16 @@ namespace MedicalResearch.Models.Departments
         public string CityName { get; set; }
         public int RegionID { get; set; }
         public string RegionName { get; set; }
+        public List<WorkScheduleViewModel> WorkSchedules { get; set; }
+        public List<DepartmentResearchListItemViewModel> DepartmentResearches { get; set; }
+        
     }
 
     public static partial class ViewModelMapperExtensions
     {
-        public static DepartmentListItemViewModel AsViewModel(this DepartmentDTO dto)
+        public static DepartmentDetailsViewModel AsViewModel(this DepartmentDetailsDTO dto)
         {
-            return new DepartmentListItemViewModel
+            return new DepartmentDetailsViewModel
             {
                 ID = dto.ID,
                 Building = dto.Building,
@@ -27,7 +33,9 @@ namespace MedicalResearch.Models.Departments
                 PhoneNumber = dto.PhoneNumber,
                 Street = dto.Street,
                 RegionID = dto.City.Region.ID,
-                RegionName = dto.City.Region.Name
+                RegionName = dto.City.Region.Name,
+                WorkSchedules = dto.WorkSchedules.Select(x => x.AsViewModel()).ToList(),
+                DepartmentResearches = dto.DepartmentResearches.Select(x => x.AsViewModel()).ToList()
             };
         }
     }

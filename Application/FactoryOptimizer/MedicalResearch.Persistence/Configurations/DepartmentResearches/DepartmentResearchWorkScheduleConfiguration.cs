@@ -16,13 +16,13 @@ namespace MedicalResearch.Persistence.Configurations.DepartmentResearches
             builder.Property(x => x.StartTime).IsRequired();
             builder.Property(x => x.EndTime).IsRequired();
 
-            builder.HasOne<DayOfWeek>(w => w.DayOfWeek)
+            builder.HasOne(w => w.DayOfWeek)
                 .WithMany()
                 .HasForeignKey(w => w.DayOfWeekID)
                 .IsRequired();
 
-            builder.HasOne<DepartmentResearch>(w => w.DepartmentResearch)
-                .WithMany()
+            builder.HasOne(w => w.DepartmentResearch)
+                .WithMany(d => d.DepartmentResearchWorkSchedules)
                 .HasForeignKey(w => w.DepartmentResearchID)
                 .IsRequired();
         }
