@@ -79,7 +79,7 @@
     <Build Include="Researches\Tables\Research.sql" />
     <Build Include="DepartmentResearches\Tables\DepartmentResearch.sql" />
     <Build Include="DepartmentResearches\Tables\DepartmentResearchWorkSchedule.sql" />
-    <Build Include="Researches\PostDeployment\02.Research.sql" />
+    <None Include="Researches\PostDeployment\02.Research.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Additional\PostDeployment\01.Region.sql" />
