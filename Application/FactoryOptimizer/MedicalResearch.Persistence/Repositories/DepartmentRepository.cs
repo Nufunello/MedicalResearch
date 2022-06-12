@@ -1,5 +1,5 @@
-﻿using MedicalResearch.Application.Cities;
-using MedicalResearch.Application.Interfaces;
+﻿using MedicalResearch.Application.Interfaces;
+using MedicalResearch.Application.Models.Cities;
 using MedicalResearch.Application.Models.Departments.Dto;
 using MedicalResearch.Application.Models.Regions.Dto;
 using MedicalResearch.Domain.Additional;
@@ -30,7 +30,7 @@ namespace MedicalResearch.Persistence.Repositories
                     Building = x.Building,
                     City = new CityDto
                     {
-                        ID = x.CityID,
+                        Id = x.CityID,
                         Name = x.City.Name,
                         Region = new RegionListItemDto
                         {
