@@ -20,7 +20,7 @@ namespace MedicalResearch.Persistence.Configurations.Departments
                 .WithMany(w => w.WorkSchedules)
                 .HasForeignKey(w => w.DepartmentID)
                 .IsRequired();
-            builder.HasOne<DayOfWeek>(w => w.DayOfWeek)
+            builder.HasOne(w => w.DayOfWeek)
                 .WithMany()
                 .HasForeignKey(w => w.DayOfWeekID)
                 .IsRequired();

@@ -10,6 +10,7 @@ namespace MedicalResearch.Application.Interfaces
         Task<IList<DepartmentDTO>> GetList();
         Task Create(Department department);
         Task<Department> Get(int id);
+        Task<DepartmentDetailsDTO> GetDetails(int id);
         Task Delete(int id);
     }
 }

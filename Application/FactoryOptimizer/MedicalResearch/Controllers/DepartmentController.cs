@@ -28,17 +28,25 @@ namespace MedicalResearch.Controllers
             return Ok(departmentListItemViewModels);
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> GetDepartmentDetails()
-        //{
-        //    return Ok();
-        //}
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetDepartmentDetails([FromRoute] int id)
+        {
+            var item = await _departmentService.GetDetails(id);
+            return Ok(item.AsViewModel());
+        }
 
         [HttpPost]
         public async Task<IActionResult> CreateDepartmentAsync(DepartmentCreateUpdateRequestModel model)
         {
             var result = await _departmentService.Create(model.AsDto());
             return Ok(result);
+        }
+
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] DepartmentCreateUpdateRequestModel model)
+        {
+            await _departmentService.Update(id, model.AsDto());
+            return Ok();
         }
     }
 }

@@ -16,12 +16,12 @@ namespace MedicalResearch.Persistence.Configurations.DepartmentResearches
             builder.Property(x => x.DepartmentID).IsRequired();
             builder.Property(x => x.ResearchID).IsRequired();
 
-            builder.HasOne<Department>()
-                .WithMany()
+            builder.HasOne(x => x.Department)
+                .WithMany(d => d.DepartmentResearches)
                 .HasForeignKey(x => x.DepartmentID)
                 .IsRequired();
-            builder.HasOne<Research>()
-                .WithMany()
+            builder.HasOne(x => x.Research)
+                .WithMany(r => r.DepartmentResearches)
                 .HasForeignKey(x => x.ResearchID)
                 .IsRequired();
            
