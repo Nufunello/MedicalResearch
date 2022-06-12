@@ -1,4 +1,6 @@
-﻿:r .\Additional\PostDeployment\01.Region.sql
+﻿:r .\Users\PostDeployment\01.User.sql
+
+:r .\Additional\PostDeployment\01.Region.sql
 :r .\Additional\PostDeployment\02.City.sql
 :r .\Additional\PostDeployment\03.DayOfWeek.sql
 

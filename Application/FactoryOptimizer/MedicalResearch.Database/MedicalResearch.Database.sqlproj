@@ -68,6 +68,8 @@
     <Folder Include="Departments\PostDeployment" />
     <Folder Include="Researches\PostDeployment" />
     <Folder Include="DepartmentResearches\PostDeployment" />
+    <Folder Include="Users" />
+    <Folder Include="Users\PostDeployment" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Additional\Tables\Region.sql" />
@@ -80,6 +82,7 @@
     <Build Include="DepartmentResearches\Tables\DepartmentResearch.sql" />
     <Build Include="DepartmentResearches\Tables\DepartmentResearchWorkSchedule.sql" />
     <None Include="Researches\PostDeployment\02.Research.sql" />
+    <Build Include="Users\User.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Additional\PostDeployment\01.Region.sql" />
@@ -90,6 +93,7 @@
     <None Include="Researches\PostDeployment\01.GroupResearch.sql" />
     <None Include="DepartmentResearches\PostDeployment\01.DepartmentResearch.sql" />
     <None Include="DepartmentResearches\PostDeployment\02.DepartmentResearchWorkSchedule.sql" />
+    <None Include="Users\PostDeployment\01.User.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="PostDeployment.sql" />
