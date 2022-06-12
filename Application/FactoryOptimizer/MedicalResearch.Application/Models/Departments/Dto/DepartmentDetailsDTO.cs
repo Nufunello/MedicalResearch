@@ -1,8 +1,10 @@
 ﻿using MedicalResearch.Application.Models.Cities;
+using MedicalResearch.Application.Models.DepartmentResearches.Dto;
+using System.Collections.Generic;
 
 namespace MedicalResearch.Application.Models.Departments.Dto
 {
-    public class DepartmentDTO
+    public class DepartmentDetailsDTO
     {
         public int ID { get; set; }
         public int CityID { get; set; }
@@ -11,7 +13,7 @@ namespace MedicalResearch.Application.Models.Departments.Dto
         public string PhoneNumber { get; set; }
 
         public CityDto City { get; set; }
-        //public List<WorkSchedule> WorkSchedules { get; set; }
-        //public List<DepartmentResearch> DepartmentResearches { get; set; }
+        public List<WorkScheduleDTO> WorkSchedules { get; set; }
+        public List<DepartmentResearchesListItemDto> DepartmentResearches { get; set; }
     }
 }

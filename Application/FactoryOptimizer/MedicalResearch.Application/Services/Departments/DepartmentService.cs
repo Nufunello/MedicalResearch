@@ -44,14 +44,35 @@ namespace MedicalResearch.Application.Services.Departments
             return department.ID;
         }
 
+        public async Task<DepartmentDetailsDTO> GetDetails(int id)
+        {
+            return await _departmentRepository.GetDetails(id);
+        }
+
         public Task Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task Update(int id, DepartmentCreateUpdateDTO departmentDTO)
+        public async Task Update(int id, DepartmentCreateUpdateDTO departmentDTO)
         {
-            throw new NotImplementedException();
+            var item = await _departmentRepository.Get(id);
+            if (item == null)
+                throw new ArgumentNullException($"Department does not exist with this id ={id}");
+
+            item.CityID = departmentDTO.CityID;
+            item.Street = departmentDTO.Street;
+            item.Building = departmentDTO.Building;
+            item.PhoneNumber = departmentDTO.PhoneNumber;
+            item.WorkSchedules.Clear();
+            item.WorkSchedules = departmentDTO.WorkSchedules.Select(x => new WorkSchedule
+            {
+                DayOfWeekID = x.DayOfWeekId,
+                StartTime = x.StartTime,
+                EndTime = x.EndTime
+            }).ToList();
+
+            await _departmentRepository.SaveChanges();
         }
     }
 }

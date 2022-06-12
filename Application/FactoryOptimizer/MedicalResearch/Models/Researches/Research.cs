@@ -1,8 +1,4 @@
 ﻿using MedicalResearch.Application.Models.Researches.Dto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MedicalResearch.Models.Researches
 {
