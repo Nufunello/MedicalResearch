@@ -38,6 +38,7 @@ namespace MedicalResearch.Persistence.DatabaseContext
             modelBuilder.ApplyConfiguration(new ResearchConfiguration());
             modelBuilder.ApplyConfiguration(new DepartmentResearchConfiguration());
             modelBuilder.ApplyConfiguration(new DepartmentResearchWorkScheduleConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
         }
     }
 }
