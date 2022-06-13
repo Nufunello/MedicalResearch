@@ -20,6 +20,11 @@ import { MaterialExampleModule } from './material.module';
 import { ResearchService } from './services/research.service';
 import { DepartmentService } from './services/department.service';
 import { DepartmentTableComponent } from './department-table/department-table.component';
+import { UserAuthorizationComponent } from './user-authorization/user-authorization.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDividerModule } from '@angular/material/divider';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -34,6 +39,8 @@ import { DepartmentTableComponent } from './department-table/department-table.co
     ResearchTableComponent,
     DepartmentTableComponent,
     DialogDataExampleDialog,
+    UserAuthorizationComponent,
+    UserRegistrationComponent,
   ],
   entryComponents: [DialogDataExampleDialog],
   imports: [
@@ -44,6 +51,7 @@ import { DepartmentTableComponent } from './department-table/department-table.co
     MaterialExampleModule,
     HttpClientModule,
     FormsModule,
+    MatDividerModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'departments', component: HomeComponent },
@@ -55,9 +63,18 @@ import { DepartmentTableComponent } from './department-table/department-table.co
       { path: 'research-table', component: ResearchTableComponent },
       { path: 'add-research-rule', component: AddResearchRuleComponent },
       { path: 'research-rule-table', component: ResearchRuleTableComponent },
+      { path: 'login', component: UserAuthorizationComponent },
+      { path: 'registration', component: UserRegistrationComponent},
     ])
   ],
-  providers: [ResearchService, DepartmentService],
-  bootstrap: [AppComponent]
+  providers: [ResearchService, DepartmentService, UserService],
+  bootstrap: [AppComponent],
+  exports:[
+    MatToolbarModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+  ]
 })
 export class AppModule { }

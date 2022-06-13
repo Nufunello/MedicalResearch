@@ -11,23 +11,23 @@ export class DepartmentService {
     serverApi: 'http://localhost:44382'
 
     create(entity: Department): Observable<number> {
-        return this._httpClient.post<number>('https://localhost:5001/department/new', entity, {headers : new HttpHeaders({ 'Content-Type': 'application/json' })});
+        return this._httpClient.post<number>('https://localhost:44382/department/new', entity, {headers : new HttpHeaders({ 'Content-Type': 'application/json' })});
     }
 
     update(entity: Department): Observable<number> {
-        return this._httpClient.put<number>('https://localhost:5001/department/' + entity.Id, entity, {headers : new HttpHeaders({ 'Content-Type': 'application/json' })});
+        return this._httpClient.put<number>('https://localhost:44382/department/' + entity.Id, entity, {headers : new HttpHeaders({ 'Content-Type': 'application/json' })});
     }
 
     getOne(id: number): Observable<Department> {
-        return this._httpClient.get<Department>('https://localhost:5001/department/' + id);
+        return this._httpClient.get<Department>('https://localhost:44382/department/' + id);
     }
 
     getDepartmentDetails(id: number): Observable<Department> {
-        return this._httpClient.get<Department>('https://localhost:5001/department/' + id);
+        return this._httpClient.get<Department>('https://localhost:44382/department/' + id);
     }
     
     list(): Observable<Department[]> {
-        return this._httpClient.get<Department[]>('https://localhost:5001/department', {headers : new HttpHeaders({ 'Content-Type': 'application/json' })});
+        return this._httpClient.get<Department[]>('https://localhost:44382/department', {headers : new HttpHeaders({ 'Content-Type': 'application/json' })});
     }
 
     getRules(): Observable<Rule[]> {
