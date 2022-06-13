@@ -1,0 +1,25 @@
+<div class="signin-content">
+    <mat-card>
+        <mat-card-content>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <h5>Авторизація</h5>
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="Електронна адреса" formControlName="Email" required>
+                    <mat-error *ngIf="isFieldInvalid('Email')">
+                        Введіть електронну адресу
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <input matInput type="password" placeholder="Пароль" formControlName="Password" required>
+                    <mat-error *ngIf="isFieldInvalid('Password')">
+                        Введіть пароль
+                    </mat-error>
+                </mat-form-field>
+                <button mat-raised-button color="primary">Авторизуватись</button>
+                <br>
+                <mat-divider></mat-divider>
+                <button [routerLink]="['/registration']" mat-flat-button>Зареєструватись</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

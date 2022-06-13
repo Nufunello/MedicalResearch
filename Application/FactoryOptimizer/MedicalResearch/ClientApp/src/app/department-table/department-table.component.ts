@@ -35,7 +35,6 @@ export class DepartmentTableComponent implements OnInit {
           this.dataSource.DepartmentResearches = resp.DepartmentResearches;
           this.data.paginator = this.paginator;
           this.data.sort = this.sort;
-          this.data = new MatTableDataSource(resp.departmentResearches);
         })
       })
     }

@@ -1,5 +1,6 @@
 ﻿using MedicalResearch.Application.Services.Departments;
 using MedicalResearch.Models.Departments;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace MedicalResearch.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetDepartmentsAsync()
         {
             
