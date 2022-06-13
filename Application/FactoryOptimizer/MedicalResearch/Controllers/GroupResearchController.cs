@@ -1,6 +1,7 @@
 ﻿using MedicalResearch.Application.Models.Researches;
 using MedicalResearch.Application.Services.GroupResearch;
 using MedicalResearch.Models.GroupResearches;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace MedicalResearch.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetGroupResearchAsync()
         {
             

@@ -10,19 +10,19 @@ export class ResearchService {
     serverApi: 'http://localhost:44382'
 
     create(entity: Research): Observable<number> {
-        return this._httpClient.post<number>('https://localhost:44382/researches/new', entity, {headers : new HttpHeaders({ 'Content-Type': 'application/json' })});
+        return this._httpClient.post<number>('https://localhost:5001/researches/new', entity, {headers : new HttpHeaders({ 'Content-Type': 'application/json' })});
     }
 
     update(entity: Research): Observable<number> {
-        return this._httpClient.put<number>('https://localhost:44382/researches/' + entity.Id, entity, {headers : new HttpHeaders({ 'Content-Type': 'application/json' })});
+        return this._httpClient.put<number>('https://localhost:5001/researches/' + entity.Id, entity, {headers : new HttpHeaders({ 'Content-Type': 'application/json' })});
     }
 
     getOne(id: number): Observable<Research> {
-        return this._httpClient.get<Research>('https://localhost:44382/researches/' + id);
+        return this._httpClient.get<Research>('https://localhost:5001/researches/' + id);
     }
     
     list(): Observable<Research[]> {
-        return this._httpClient.post<Research[]>('https://localhost:44382/researches', {
+        return this._httpClient.post<Research[]>('https://localhost:5001/researches', {
             "Name": "",
             "GroupName":""
         }, {headers : new HttpHeaders({ 'Content-Type': 'application/json' })});
