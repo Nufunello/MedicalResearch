@@ -18,6 +18,8 @@ import { DialogDataExampleDialog, ResearchTableComponent } from './add-research/
 import { MatTableModule } from '@angular/material/table';
 import { MaterialExampleModule } from './material.module';
 import { ResearchService } from './services/research.service';
+import { DepartmentService } from './services/department.service';
+import { DepartmentTableComponent, DialogData } from './department-table/department-table.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { ResearchService } from './services/research.service';
     AddResearchRuleComponent,
     ResearchRuleTableComponent,
     ResearchTableComponent,
+    DepartmentTableComponent,
     DialogDataExampleDialog,
   ],
   entryComponents: [DialogDataExampleDialog],
@@ -43,6 +46,8 @@ import { ResearchService } from './services/research.service';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'departments', component: HomeComponent },
+      { path: 'departments/:id', component: DepartmentTableComponent },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'add-research', component: AddResearchComponent },
@@ -52,7 +57,7 @@ import { ResearchService } from './services/research.service';
       { path: 'research-rule-table', component: ResearchRuleTableComponent },
     ])
   ],
-  providers: [ResearchService],
+  providers: [ResearchService, DepartmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

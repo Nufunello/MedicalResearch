@@ -18,7 +18,6 @@ export class AddResearchComponent implements AfterContentInit {
 
   ngAfterContentInit(): void {
     this.id = Number(this.router.url.split('/').pop());
-    console.log(this.id);
     if(this.id) {
       this.service.getOne(this.id).subscribe((response) => this.researchForm.reset(this.mapResponse(response)));
     }
