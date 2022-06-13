@@ -19,7 +19,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MaterialExampleModule } from './material.module';
 import { ResearchService } from './services/research.service';
 import { DepartmentService } from './services/department.service';
-import { DepartmentTableComponent, DialogData } from './department-table/department-table.component';
+import { DepartmentTableComponent } from './department-table/department-table.component';
 
 @NgModule({
   declarations: [

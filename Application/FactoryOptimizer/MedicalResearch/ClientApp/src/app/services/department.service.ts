@@ -22,8 +22,8 @@ export class DepartmentService {
         return this._httpClient.get<Department>('https://localhost:44382/department/' + id);
     }
 
-    getDepartmentDetails(id: number): Observable<Department> {
-        return this._httpClient.get<Department>('https://localhost:44382/department/' + id);
+    getDepartmentDetails(id: number): Observable<any> {
+        return this._httpClient.get<any>('https://localhost:44382/department/' + id);
     }
     
     list(): Observable<Department[]> {
