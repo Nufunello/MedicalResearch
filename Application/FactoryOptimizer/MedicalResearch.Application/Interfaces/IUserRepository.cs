@@ -9,6 +9,7 @@ namespace MedicalResearch.Application.Interfaces
     {
         Task<IList<UserDto>> GetList();
         Task<UserDto> GetUser(int id);
+        Task<User> GetById(int id);
         Task Create(User user);
         Task<User> LogIn(LogInDto item);
         Task<User> Get(string email, string password);

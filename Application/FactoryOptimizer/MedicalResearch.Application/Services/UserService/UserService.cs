@@ -1,13 +1,8 @@
 ﻿using MedicalResearch.Application.Interfaces;
 using MedicalResearch.Application.Models.Users;
 using MedicalResearch.Domain.Users;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Cryptography.KeyDerivation;
-using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
-using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -74,9 +69,14 @@ namespace MedicalResearch.Application.Services.UserService
             }
         }
 
-        public Task Update(UserDto dto)
+        public async Task Update(int id, bool canChange)
         {
-            throw new NotImplementedException();
+            var user = await _userRepository.GetById(id);
+            if (user == null)
+                throw new ArgumentNullException("User with id not exist");
+
+            user.CanChange = canChange;
+            await _userRepository.SaveChanges();
         }
 
         private string HashPassword(string password)

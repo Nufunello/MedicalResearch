@@ -1,6 +1,7 @@
 ﻿using MedicalResearch.Application.Models.Researches;
 using MedicalResearch.Application.Services.GroupResearch;
 using MedicalResearch.Models.GroupResearches;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace MedicalResearch.Controllers
 
     [ApiController]
     [Route("group-research")]
+    [Authorize]
     public class GroupResearchController : ControllerBase
     {
         private readonly IGroupResearchService _groupResearchService;
@@ -21,6 +23,7 @@ namespace MedicalResearch.Controllers
             _groupResearchService = groupResearchService;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetGroupResearchAsync()
         {

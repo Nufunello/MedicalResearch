@@ -2,6 +2,7 @@
 using MedicalResearch.Application.Services.Researches;
 using MedicalResearch.Models.Regions;
 using MedicalResearch.Models.Researches;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace MedicalResearch.Controllers
 {
     [ApiController]
     [Route("researches")]
+    [Authorize]
     public class ResearchController : ControllerBase
     {
         private readonly IResearchService _researchService;
@@ -18,6 +20,7 @@ namespace MedicalResearch.Controllers
             _researchService = researchService;
         }
 
+        [AllowAnonymous]
         [HttpPost()]
         public async Task<IActionResult> GetResearches([FromBody]ResearchListQuery query)
         {
@@ -33,6 +36,7 @@ namespace MedicalResearch.Controllers
             return Ok(await _researchService.Create(model.AsDto()));
         }
 
+        [AllowAnonymous]
         [HttpGet("{id:int}")]
         public async Task<IActionResult> Get([FromRoute] int id)
         {
