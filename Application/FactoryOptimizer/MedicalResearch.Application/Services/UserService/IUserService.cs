@@ -10,6 +10,6 @@ namespace MedicalResearch.Application.Services.UserService
         Task<UserDto> Get(int id);
         Task<int> Create(RegisterDto dto);
         Task<string> LogIn(LogInDto dto);
-        Task Update(UserDto dto);
+        Task Update(int id, bool canChange);
     }
 }

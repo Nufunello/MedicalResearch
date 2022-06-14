@@ -52,6 +52,11 @@ namespace MedicalResearch.Persistence.Repositories
             return await DbContext.Set<User>().FirstOrDefaultAsync(x => x.Email == email && x.Password == password);
         }
 
+        public async Task<User> GetById(int id)
+        {
+            return await DbContext.Set<User>().FirstOrDefaultAsync(x => x.Id == id);
+        }
+
         public async Task<bool> ExistEmail(string email)
         {
             return await DbContext.Set<User>().AnyAsync(x => x.Email == email);

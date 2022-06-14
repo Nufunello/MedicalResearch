@@ -15,6 +15,7 @@ namespace MedicalResearch.Controllers
 {
     [ApiController]
     [Route("users")]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -23,7 +24,6 @@ namespace MedicalResearch.Controllers
             _userService = userService;
         }
 
-        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetUsers()
         {
@@ -32,6 +32,7 @@ namespace MedicalResearch.Controllers
             return Ok(itemsVM);
         }
 
+        [AllowAnonymous]
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterRequestModel model)
         {
@@ -39,6 +40,7 @@ namespace MedicalResearch.Controllers
             return Ok(id);
         }
 
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<IActionResult> LogIn(LogInRequestModel model)
         {
@@ -61,6 +63,20 @@ namespace MedicalResearch.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return Redirect("/users/login");
+        }
+
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetDetails([FromRoute] int id)
+        {
+            var item = await _userService.Get(id);
+            return Ok(item.AsViewModel());
+        }
+
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> Activate([FromRoute] int id, [FromBody] bool canChange)
+        {
+            await _userService.Update(id, canChange);
+            return Ok();
         }
     }
 }

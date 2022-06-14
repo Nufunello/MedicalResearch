@@ -1,8 +1,7 @@
 ﻿using MedicalResearch.Application.Services.Departments;
 using MedicalResearch.Models.Departments;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,6 +9,7 @@ namespace MedicalResearch.Controllers
 {
     [ApiController]
     [Route("department")]
+    [Authorize]
     public class DepartmentController : ControllerBase
     {
         private readonly IDepartmentService _departmentService;
@@ -19,6 +19,7 @@ namespace MedicalResearch.Controllers
             _departmentService = departmentService;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetDepartmentsAsync()
         {
@@ -28,6 +29,7 @@ namespace MedicalResearch.Controllers
             return Ok(departmentListItemViewModels);
         }
 
+        [AllowAnonymous]
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetDepartmentDetails([FromRoute] int id)
         {
