@@ -17,8 +17,8 @@
                 </mat-form-field>
                 <button mat-raised-button color="primary">Авторизуватись</button>
                 <br>
-                <mat-divider></mat-divider>
-                <button [routerLink]="['/registration']" mat-flat-button>Зареєструватись</button>
+                <mat-error *ngIf="showError">Невірно вказаний пароль, або логін</mat-error>
+                <!-- <button [routerLink]="['/registration']" mat-flat-button>Зареєструватись</button> -->
             </form>
         </mat-card-content>
     </mat-card>

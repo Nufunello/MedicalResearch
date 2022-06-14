@@ -18,10 +18,12 @@ export class ResearchTableComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name', 'deadlineInDays', 'groupName', 'preparationDescription', 'cost', 'btn'];
   dataSource = new MatTableDataSource();
+  auth = false;
 
   constructor(private _liveAnnouncer: LiveAnnouncer, private router: Router, private service: ResearchService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
+      this.auth = localStorage.getItem('auth') === 'true';
       this.service.list().subscribe(response => {
         this.dataSource = new MatTableDataSource(response);
         this.dataSource.paginator = this.paginator;

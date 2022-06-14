@@ -12,7 +12,7 @@ export class UserService {
     serverApi: 'http://localhost:44382'
 
     login(entity: UserAuthorization) {
-        return this._httpClient.post('https://localhost:44382/users/login', entity,{headers : new HttpHeaders({ 'Content-Type': 'application/json' })})
+        return this._httpClient.post<UserAuthorization>('https://localhost:44382/users/login', entity,{headers : new HttpHeaders({ 'Content-Type': 'application/json' })})
     }
     
     register(entity: UserRegistration):Observable<number> {

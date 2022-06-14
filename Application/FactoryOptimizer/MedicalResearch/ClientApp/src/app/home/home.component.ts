@@ -18,10 +18,12 @@ export class HomeComponent {
 
   displayedColumns: string[] = ['region', 'address', 'phone', 'open', 'btn'];
   dataSource = new MatTableDataSource();
+  auth = false;
 
   constructor(private _liveAnnouncer: LiveAnnouncer, private router: Router, private service: DepartmentService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
+      this.auth = localStorage.getItem('auth') === 'true';
       this.service.list().subscribe(response => {
         this.dataSource = new MatTableDataSource(response);
         this.dataSource.paginator = this.paginator;
